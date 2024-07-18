@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Daily Expenses</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Expense Tracker</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/index">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/daily-expense">Daily Expense</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact-us">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h2>Daily Expenses</h2>
+  <form th:action="@{/daily-expense}" th:object="${expense}" method="post">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="amount">Amount:</label>
+        <input type="text" class="form-control" id="amount" th:field="*{amount}" />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="description" th:field="*{description}" />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="category">Category:</label>
+        <input type="text" class="form-control" id="category" th:field="*{category}" />
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Expense</button>
+    </div>
+  </form>
+
+  <h2>Search Expenses</h2>
+  <form th:action="@{/daily-expense/search}" method="get">
+    <div class="form-group">
+      <label for="keyword">Keyword:</label>
+      <input type="text" class="form-control" id="keyword" name="keyword" />
+      <button type="submit" class="btn btn-secondary mt-2"><i class="fas fa-search"></i> Search</button>
+    </div>
+  </form>
+
+  <h2>All Expenses</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="expense : ${expenses}">
+      <td th:text="${expense.id}">ID</td>
+      <td th:text="${expense.amount}">Amount</td>
+      <td th:text="${expense.description}">Description</td>
+      <td th:text="${expense.category}">Category</td>
+      <td>
+        <a th:href="@{/daily-expense/edit/{id}(id=${expense.id})}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+        <a th:href="@{/daily-expense/delete/{id}(id=${expense.id})}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

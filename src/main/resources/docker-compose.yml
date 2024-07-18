@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  postgres:
+    container_name: postgres_Expense1
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: expense_tracker_db
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4_Expense
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: group5@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5056:80"
