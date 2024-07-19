@@ -25,6 +25,28 @@
             padding: 100px 0;
             background: #f9f9f9;
             color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-section .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-section .text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .about-section .image {
+            flex: 1;
+            text-align: center;
+        }
+        .about-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
         }
         .about-section h2 {
             font-size: 36px;
@@ -34,31 +56,6 @@
         .about-section p {
             font-size: 18px;
             line-height: 1.6;
-        }
-        .team-section {
-            padding: 50px 0;
-            background: #ffffff;
-            color: #333;
-        }
-        .team-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-        .team-section .card {
-            border: none;
-            margin-bottom: 30px;
-        }
-        .team-section .card img {
-            border-radius: 50%;
-        }
-        .team-section .card-title {
-            font-size: 22px;
-            font-weight: 700;
-        }
-        .team-section .card-text {
-            font-size: 16px;
-            color: #6c757d;
         }
     </style>
 </head>
@@ -92,43 +89,17 @@
 
 <div class="about-section text-center">
     <div class="container">
-        <h2>About Our Project</h2>
-        <p>Our project aims to provide a simple and effective tool to help <br>
-            you manage your personal expenses efficiently and effectively. Our goal is to empower individuals to take control of their finances by recording daily expenses and making informed financial decisions.</p>
-    </div>
-</div>
+        <div class="text">
+            <h2>About Our Project</h2>
+            <p>Our project aims to provide a simple and effective tool to help
+                you manage your personal expenses efficiently and effectively. <br>
+                Our goal is to empower individuals to take control of their finances by recording daily expenses <br>
+                and making informed financial decisions.</p>
 
-<div class="team-section text-center">
-    <div class="container">
-        <h2>Meet Our Team</h2>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <img class="card-img-top" src="team-member1.jpg" alt="Team Member 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Team Member 1</h5>
-                        <p class="card-text">Lead Developer</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img class="card-img-top" src="team-member2.jpg" alt="Team Member 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Team Member 2</h5>
-                        <p class="card-text">UI/UX Designer</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img class="card-img-top" src="team-member3.jpg" alt="Team Member 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Team Member 3</h5>
-                        <p class="card-text">Project Manager</p>
-                    </div>
-                </div>
-            </div>
+            <p>Phone: +252612011700</p>
+        </div>
+        <div class="image">
+            <img src="/Images/0.jpg" alt="Team Member">
         </div>
     </div>
 </div>

@@ -2,7 +2,10 @@ package com.example.Personal_Expense_Tracker.Model;
 
 import com.example.Personal_Expense_Tracker.Model.Expense;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+
 import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -30,6 +33,7 @@ public class User {
     @Column(name = "total_expenses", nullable = false)
     private double totalExpenses = 0.0;
 
+    //FK 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Expense> expenses;
 
