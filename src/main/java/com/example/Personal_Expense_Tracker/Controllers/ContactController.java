@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class ContactController {
 
@@ -20,8 +21,8 @@ public class ContactController {
                                     @RequestParam("phone") String phone,
                                     @RequestParam("message") String message,
                                     Model model) {
-        // Process the form data here (e.g., save to database or send an email)
-        model.addAttribute("successMessage", "Your message has been sent successfully!");
+        // Print a simple confirmation message to the user
+        model.addAttribute("successMessage", "Your message has been sent successfully! Thank you for contacting us.");
         return "contact";
     }
 }
