@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -9,6 +10,7 @@
             padding-top: 56px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #ffffff;
+            margin: 0;
         }
         .navbar {
             background-color: transparent;
@@ -25,23 +27,17 @@
             padding: 100px 0;
             background: #f9f9f9;
             color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .about-section .container {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        .about-section .text {
-            flex: 1;
-            margin-right: 20px;
-        }
-        .about-section .image {
-            flex: 1;
             text-align: center;
+        }
+        .about-section .text, .about-section .image {
+            flex: 1;
+            margin-bottom: 20px;
         }
         .about-section img {
             max-width: 100%;
@@ -56,6 +52,15 @@
         .about-section p {
             font-size: 18px;
             line-height: 1.6;
+        }
+        @media (min-width: 768px) {
+            .about-section .container {
+                flex-direction: row;
+                text-align: left;
+            }
+            .about-section .text {
+                margin-right: 20px;
+            }
         }
     </style>
 </head>
@@ -95,7 +100,6 @@
                 you manage your personal expenses efficiently and effectively. <br>
                 Our goal is to empower individuals to take control of their finances by recording daily expenses <br>
                 and making informed financial decisions.</p>
-
             <p>Phone: +252612011700</p>
         </div>
         <div class="image">
@@ -103,8 +107,6 @@
         </div>
     </div>
 </div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

@@ -2,11 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Daily Expenses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding-top: 56px;
+        }
+        .navbar {
+            background-color: transparent;
+        }
+        .navbar-nav .nav-link {
+            color: #333;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #764ba2;
+        }
+        .container {
+            margin-top: 60px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .table th, .table td {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <a class="navbar-brand" href="/index">Expense Tracker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -29,7 +59,7 @@
 </nav>
 
 <div class="container mt-5">
-  <h1>Daily Expenses</h1>
+  <h1 class="text-center">Daily Expenses</h1>
   <form th:action="@{/daily-expense}" th:object="${expense}" method="post">
     <div class="form-row">
       <div class="form-group col-md-3">
@@ -48,7 +78,7 @@
     <button type="submit" class="btn btn-primary">Add Expense</button>
   </form>
 
-  <h2>Search Expenses</h2>
+  <h2 class="mt-4">Search Expenses</h2>
   <form th:action="@{/daily-expense/search}" method="get">
     <div class="form-group">
       <label for="keyword">Keyword:</label>
@@ -57,27 +87,28 @@
     </div>
   </form>
 
-  <h2>All Expenses</h2>
-  <table class="table mt-3">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Amount</th>
-      <th>Description</th>
-      <th>Category</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="expense : ${expenses}">
-      <td th:text="${expense.id}"></td>
-      <td th:text="${expense.amount}"></td>
-      <td th:text="${expense.description}"></td>
-      <td th:text="${expense.category}"></td>
-    </tr>
-    </tbody>
-  </table>
+  <h2 class="mt-4">All Expenses</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered mt-3">
+      <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="expense : ${expenses}">
+        <td th:text="${expense.id}"></td>
+        <td th:text="${expense.amount}"></td>
+        <td th:text="${expense.description}"></td>
+        <td th:text="${expense.category}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
