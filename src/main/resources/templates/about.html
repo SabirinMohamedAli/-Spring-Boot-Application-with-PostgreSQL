@@ -4,13 +4,14 @@
     <title>About Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             padding-top: 56px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #ffffff;
             margin: 0;
+            font-family: 'Montserrat', sans-serif;
         }
         .navbar {
             background-color: transparent;
@@ -18,7 +19,6 @@
         .nav-link, .navbar-brand {
             color: #ffffff !important;
             font-weight: bold;
-            font-family: 'Montserrat', sans-serif;
         }
         .nav-link:hover {
             color: #764ba2 !important;
@@ -52,6 +52,25 @@
         .about-section p {
             font-size: 18px;
             line-height: 1.6;
+        }
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .marquee p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 10s linear infinite;
+            font-size: 18px;
+            color: #667eea;
+            font-weight: 700;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
         }
         @media (min-width: 768px) {
             .about-section .container {
@@ -96,15 +115,16 @@
     <div class="container">
         <div class="text">
             <h2>About Our Project</h2>
-            <p>Our project aims to provide a simple and effective tool to help
-                you manage your personal expenses efficiently and effectively. <br>
-                Our goal is to empower individuals to take control of their finances by recording daily expenses <br>
-                and making informed financial decisions.</p>
+            <div class="marquee">
+                <p>Our project aims to provide a simple and effective tool to help you manage  <br> your personal expenses efficiently
+                    and effectively. <br>
+                    Our goal is to empower individuals to take control of their finances by recording <br> daily expenses <br>
+                    and making informed financial decisions.</p>
+            </div>
             <p>Phone: +252612011700</p>
+            <p>Email: thaprinmohamett1333@gmail.com</p>
         </div>
-        <div class="image">
-            <img src="/Images/0.jpg" alt="Team Member">
-        </div>
+
     </div>
 </div>
 
